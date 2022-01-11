@@ -79,3 +79,16 @@ function randomWords(array $words):void
         }
     } while ($words && count(array_filter($words, 'is_null')) !== count($words));
 }
+
+/**
+ * @param array $list
+ * @return mixed
+ */
+function removeRandomElementFromList(array &$list)
+{
+	$randomKey = array_rand($list);
+	$randomElement = $list[$randomKey];
+	unset($list[$randomKey]);
+
+	return $randomElement;
+}
